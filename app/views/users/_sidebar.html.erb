@@ -1,0 +1,25 @@
+<div class="col-md-4" >
+	<div>
+		<h1>Users info</h1>
+		<%= attachment_image_tag user, :profile_image,　format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+		<table class="table">
+			<tr><th>name</th><td><%= user.name %></td></tr>
+			<tr><th>introduction</th><td><%= user.introduction %></td></tr>
+		</table>
+		<div class="btn-group-justified">
+			<%= link_to 'edit', edit_user_path(user.id), class: 'btn btn-success' %>
+		</div>
+	</div>
+	<div>
+		<h1>New Book</h1>
+		<%= form_for(book) do |f| %>
+			<h4>Title</h4>
+			<%= f.text_field :title %>
+			<h4>Opinion</h4>
+			<%= f.text_area :body %>
+			<%= f.submit 'Create Book', class: 'btn-group-justified' %>
+		<% end %>
+	</div>
+</div>
+
+

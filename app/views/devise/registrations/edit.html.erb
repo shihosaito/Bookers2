@@ -1,0 +1,21 @@
+<h2>User info</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <label>Image</label>
+  <%= f.attachment_field :profile_image %>
+  <label>Introduction</label>
+  <%= f.text_area :introduction %>
+
+  <div class="actions">
+    <%= f.submit "update user" %>
+  </div>
+
+<% end %>
+
+<%= link_to "Back", :back %>
