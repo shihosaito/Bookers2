@@ -31,11 +31,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def top
-  end
-
-  def about
-  end
 
 private
   def user_params
