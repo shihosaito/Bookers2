@@ -8,10 +8,6 @@ def index
     @book = Book.new
 end
 
-def new
-	@book = Book.new
-end
-
 def create
     @books = Book.all
     @user = current_user
@@ -30,12 +26,15 @@ def create
 end
 
 def edit
-    @book = Book.find(params.id)
+    @user = current_user
+    @book = Book.new
+
+    @book = Book.find(params[:id])
 end
 
 def update
     @user = current_user
-    @book = Book.new(book_params)
+    @book = Book.new
 
     book = Book.find(params[:id])
     if book.update(book_params)
@@ -54,7 +53,7 @@ end
 
 def destroy
     book = Book.find(params[:id])
-    book = destroy
+    book.destroy
     flash[:notice] = "Book was successfully destroyed."
     redirect_to books_path
 end

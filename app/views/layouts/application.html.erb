@@ -28,8 +28,8 @@
 
               <ul class="nav navbar-nav">
                 <li class="active"><%= link_to 'Home', user_path(current_user.id), class: 'home' %></li>
-                <li><%= link_to 'User', users_path %></li>
-                <li><%= link_to 'Book', books_path %></li>
+                <li><%= link_to 'User', users_path, class: "users" %></li>
+                <li><%= link_to 'Book', books_path , class: "books"  %></li>
                 <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'logout' %></li>
               </ul>
 
@@ -38,7 +38,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><%= link_to 'Home', root_path, class: 'home' %></li>
                 <li><%= link_to 'About', about_path, class: 'about' %></li>
-                <li><%= link_to 'Sign up', new_user_registration_path %></li>
+                <li><%= link_to 'Sign up', new_user_registration_path, class: "sign_up"  %></li>
                 <li><%= link_to 'Log in', new_user_session_path, class: 'sign_in' %></li>
               </ul>
             <% end %>
@@ -47,12 +47,14 @@
       </nav>
     </header>
 
-    <% if notice %>
-      　　<p class="alert alert-notice"><%= notice %></p>
+    <div class="container">
+      <% if notice %>
+        　　<p class="alert alert-notice"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+           <p class="alert alert-error"><%= alert %></p>
       <% end %>
-      <% if alert %>
-         <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,10 +1,17 @@
-<%= render 'users/sidebar', user: @user, book: @book %>
 
-<h1>Editing Book</h1>
-	<%= form_for(book) do |f| %>
+<div class="container">
+	<div class="row">
+
+	<h1>Editing Book</h1>
+	<%= form_for(@book) do |f| %>
 		<h4>Title</h4>
-		<%= f.text_field :title %>
+		<%= f.text_field :title, class: "book_title" %>
 		<h4>Opinion</h4>
-		<%= f.text_area :body %>
-		<%= f.submit 'Update Book', class: 'btn-group-justified' %>
-	<% end %>s
+		<%= f.text_area :body, class: "book_body" %>
+		<div><%= f.submit 'Update Book' %></div>
+	<% end %>
+
+	<%= link_to "show", book_path(@book.id), class: "book_#{@book.id}" %> | <%= link_to "back", books_path, class: "back" %>
+
+	</div>
+</div>
