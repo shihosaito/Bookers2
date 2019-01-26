@@ -20,7 +20,7 @@ def create
     # redirect_to "/books/book.id"
     # redirect_to "/books/:id"
     # redirect_to "/books/params[:id]"
-    else
+    else flash[:notice] = "Error"
     render :index #viewに飛ぶ
     end
 end
