@@ -6,10 +6,8 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="field">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "name" %>
-      </div>
+      <label>Name</label><br>
+      <%= f.text_field :name, class: "name" %>
       <label>Image</label>
       <%= f.attachment_field :profile_image, class: "user_image" %>
       <label>Introduction</label>

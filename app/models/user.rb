@@ -9,6 +9,7 @@ class User < ApplicationRecord
   attachment :profile_image
 
   validates :name, length: { in: 2..20 } # 「2文字以上20文字以下」
-  validates :name, presence: true #空でない事
+  validates :name, presence: true #
+  validates :introduction, length: { maximum: 50 }
 
 end

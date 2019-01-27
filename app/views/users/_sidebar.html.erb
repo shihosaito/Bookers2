@@ -8,7 +8,7 @@
 		</table>
 		<div class="btn-group-justified">
 			<%#= link_to '', edit_user_path(user.id),class: 'glyphicon glyphicon-wrench ' %>
-			<%= link_to  edit_user_path(user.id), class: "btn btn-default edit_user_#{user.id}" do %>
+			<%= link_to  edit_user_path(current_user.id), class: "btn btn-default edit_user_#{user.id}" do %>
 			  <i class="glyphicon glyphicon-wrench"></i>
 			<% end %>
 		</div>

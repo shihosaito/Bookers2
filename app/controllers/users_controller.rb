@@ -3,10 +3,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
+    @books = @user.books
     @book = Book.new
-
-    @books = current_user.books
   end
 
   def edit
@@ -14,9 +13,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     @user.update(user_params)
     if @user.save
+      flash[:notice] = "Successfully"
       redirect_to user_path(@user.id)
     else
       render :edit

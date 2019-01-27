@@ -6,6 +6,8 @@
 
 			<h1>Book detail</h1>
 			<table class="table">
+
+			  <% if @user == current_user %>
 				<thead>
 					<tr>
 						<th></th>
@@ -19,9 +21,25 @@
 					<td></td>
 					<td><%= @books.title %></td>
 					<td><%= @books.body %></td>
-					<td><%= link_to 'edit', edit_book_path(@books.id), class: "edit_book_#{@books.id}" %></td>
+					<td><%= link_to 'edit', edit_book_path(@books.id), class: "edit_book_#{@books.id}" %>
+					</td>
 					<td><%= link_to 'destroy', book_path(@books.id), method: :delete, class: "destroy_book_#{@books.id}" %></td>
 				</tr>
+
+				<% else %>
+
+				  <thead>
+						<tr>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tr>
+						<td><%= @books.title %></td>
+						<td><%= @books.body %></td>
+					</tr>
+				<% end %>
+
 			</table>
 
 		</div>
