@@ -35,8 +35,8 @@ class BooksController < ApplicationController
     end
 
     def update
-        @user = @books.user
-        @book = Book.new
+        # @user = @books.user
+        # @book = Book.new  #要らない
 
         book = Book.find(params[:id])
         if book.update(book_params)
